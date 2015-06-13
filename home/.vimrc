@@ -20,6 +20,7 @@ Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 
