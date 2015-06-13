@@ -62,10 +62,6 @@ set smartcase                   "Ignore case except when we have upper case char
 set ignorecase                  "Used in conjunction with the above
 set incsearch                   "Start searching before hitting enter.
 
-"Store backups and swap files elsewhere
-set backupdir=~/.vim/backup/
-set directory=~/.vim/swp/
-
 """"""""""""
 " Mappings
 """"""""""""
@@ -84,12 +80,11 @@ inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
 
 "Backslash is my leader.
-let mapleader = "\\"
+let mapleader = ";"
 
 "Fast saving
 nmap <leader>w :w!<cr>
 
 "NERDTree
-map <C-n> :NERDTreeToggle<CR>   "Open the NERD Tree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+noremap <leader>n :NERDTreeToggle<CR>   "Open the NERD Tree
 
