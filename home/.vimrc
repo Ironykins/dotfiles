@@ -18,6 +18,8 @@ set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
 call vundle#begin()         
 Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
 Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 call vundle#end()
 
 
@@ -37,6 +39,7 @@ set number                      "Enables line numbering
 set virtualedit=onemore         "So we can insert past the end of the line.
 set undolevels=1000             "Number of undo levels
 set backspace=indent,eol,start  "Modern backspace behaviour
+set hidden                      "Lets us have edited buffers in the background.
 
 "Tabbing Settings
 set smarttab                    "Improves tabbing
@@ -84,3 +87,8 @@ let mapleader = "\\"
 
 "Fast saving
 nmap <leader>w :w!<cr>
+
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>   "Open the NERD Tree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
