@@ -86,5 +86,6 @@ let mapleader = ";"
 nmap <leader>w :w!<cr>
 
 "NERDTree
-noremap <leader>n :NERDTreeToggle<CR>   "Open the NERD Tree
-
+map <C-o> :NERDTreeToggle <CR>   "Open the NERD Tree
+"Close NERDTree if it's the only open window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
