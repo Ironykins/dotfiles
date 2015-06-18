@@ -17,12 +17,10 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
 call vundle#begin()         
 Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
-Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
 call vundle#end()
-
 
 "Filetype commands. Mostly temporary/obsolete.
 filetype plugin indent on
@@ -33,6 +31,7 @@ au BufRead,BufNewFile *.y set filetype=haskell
 
 "Basic settings
 syntax on                       "Syntax Highlighting
+set modelines=0                 "For security
 set nocompatible                "No need for vi compatibility
 set mouse=a                     "Mouse control
 set showmatch                   "Highlights matching brackets
@@ -41,6 +40,7 @@ set virtualedit=onemore         "So we can insert past the end of the line.
 set undolevels=1000             "Number of undo levels
 set backspace=indent,eol,start  "Modern backspace behaviour
 set hidden                      "Lets us have edited buffers in the background.
+set noerrorbells                "Don't beep at us.
 
 "Tabbing Settings
 set smarttab                    "Improves tabbing
@@ -62,6 +62,10 @@ set smartcase                   "Ignore case except when we have upper case char
 set ignorecase                  "Used in conjunction with the above
 set incsearch                   "Start searching before hitting enter.
 
+" Store backups and swap files elsewhere
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
+
 """"""""""""
 " Mappings
 """"""""""""
@@ -80,12 +84,12 @@ inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
 
 "Backslash is my leader.
-let mapleader = ";"
+let mapleader = "\\"
 
 "Fast saving
 nmap <leader>w :w!<cr>
 
 "NERDTree
-map <C-o> :NERDTreeToggle <CR>   "Open the NERD Tree
+noremap <leader>f :NERDTreeToggle <cr>
 "Close NERDTree if it's the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
