@@ -6,12 +6,6 @@
 
 "vimRC made by Ironkins
 
-"Key Bindings
-set tabpagemax=20
-map <F7> :tabp <CR>
-map <F8> :tabn <CR>
-set pastetoggle=<F2>
-
 "Vundle plugin Stuff. run :PluginInstall to update installed plugins.
 filetype off  
 set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
@@ -50,6 +44,9 @@ set expandtab                   "Makes all tabs into spaces.
 set autoindent                  "If you're indented, new lines will also be indented
 set smartindent                 "Indents lines after opening brackets.
 
+"Window Settings
+set laststatus=2                "Always display the statusline in all windows
+
 "Aesthetics
 colorscheme slate
 set background=dark
@@ -69,6 +66,11 @@ set directory=~/.vim/swp//
 """"""""""""
 " Mappings
 """"""""""""
+set pastetoggle=<F2>
+
+"Tabs 
+map <F7> :tabp <CR>
+map <F8> :tabn <CR>
 
 "Smart way to move between windows
 map <C-j> <C-W>j
@@ -77,19 +79,30 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 set wmh=0
 
+"Managing Buffers
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+
 "Navigation in insert mode.
 inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
 
+"Normal Mode Sugar
+nmap <CR> o<Esc>
+nmap <BS> ddk
+
 "Backslash is my leader.
 let mapleader = "\\"
+
+"Clear search with <leader><space>
+nnoremap <leader><space> :noh<cr>
 
 "Fast saving
 nmap <leader>w :w!<cr>
 
 "NERDTree
-noremap <leader>f :NERDTreeToggle <cr>
+noremap <leader>f :NERDTreeToggle<cr>
 "Close NERDTree if it's the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
