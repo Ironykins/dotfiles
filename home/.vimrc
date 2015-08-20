@@ -11,9 +11,12 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
 call vundle#begin()         
 Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 
 "Filetype commands. Mostly temporary/obsolete.
@@ -48,6 +51,7 @@ set smartindent                 "Indents lines after opening brackets.
 set laststatus=2                "Always display the statusline in all windows
 
 "Aesthetics
+set t_Co=256                    "Always use 256 color terminal.
 colorscheme slate
 set background=dark
 set showbreak=+++               "Put in linebreaks.
@@ -63,25 +67,31 @@ set incsearch                   "Start searching before hitting enter.
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
+" Config for Airline.
+let g:airline_theme='durant'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 """"""""""""
 " Mappings
 """"""""""""
 set pastetoggle=<F2>
 
-"Tabs 
-map <F7> :tabp <CR>
-map <F8> :tabn <CR>
+"Tabs  -- BAD! Don't use tabs like they are in other editors.
+"map <F7> :tabp <CR>
+"map <F8> :tabn <CR>
 
 "Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+"map <C-j> <C-W>j
+"map <C-k> <C-W>k
+"map <C-h> <C-W>h
+"map <C-l> <C-W>l
 set wmh=0
 
 "Managing Buffers
-map <C-Tab> :bnext<cr>
-map <C-S-Tab> :bprevious<cr>
+map <C-s> :bdelete<cr>
+map <C-n> :bnext<cr>
+map <C-p> :bprevious<cr>
 
 "Navigation in insert mode.
 inoremap <C-h> <C-o>h
@@ -106,3 +116,4 @@ nmap <leader>w :w!<cr>
 noremap <leader>f :NERDTreeToggle<cr>
 "Close NERDTree if it's the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+

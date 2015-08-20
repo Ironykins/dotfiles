@@ -7,6 +7,8 @@ alias emacs='emacs -nw'
 alias aust='ssh konrad@austhaus.com'
 alias cse='ssh ktaust@cse.cpsc.ucalgary.ca'
 alias csc='ssh ktaust@csc.cpsc.ucalgary.ca'
+alias gf='echo no gf'
+alias tmux="TERM=screen-256color-bce tmux"
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
