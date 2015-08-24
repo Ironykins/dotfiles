@@ -13,14 +13,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-surround'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'godlygeek/tabular'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
 "Filetype commands. Mostly temporary/obsolete.
 filetype plugin indent on
+filetype plugin on
 au BufRead,BufNewFile *.m set filetype=asm
 au BufRead,BufNewFile *.s set filetype=armasm
 au BufRead,BufNewFile *.x set filetype=haskell
@@ -88,10 +93,14 @@ set pastetoggle=<F2>
 "map <C-l> <C-W>l
 set wmh=0
 
+"Ctrlp mapping
+map <C-o> :CtrlPBuffer<cr>
+
 "Managing Buffers
-map <C-s> :bdelete<cr>
-map <C-n> :bnext<cr>
-map <C-p> :bprevious<cr>
+map <C-h> :bprevious<cr>
+map <C-l> :bnext<cr>
+map <leader>q :bdelete<cr>
+map <leader>Q :wincmd c<cr>
 
 "Navigation in insert mode.
 inoremap <C-h> <C-o>h
