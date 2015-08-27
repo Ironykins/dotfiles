@@ -68,6 +68,8 @@ ${font Terminus:style=bold:size=9}PROCESSORS $hr
 ${font}${cpugraph cpu0}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
+CPU3: ${cpu cpu3}% ${cpubar cpu3}
+CPU4: ${cpu cpu4}% ${cpubar cpu4}
 
 ${font Terminus:style=bold:size=9}MEMORY $hr
 ${font}RAM ${alignc}     $mem/$memmax  $alignr $memperc%
