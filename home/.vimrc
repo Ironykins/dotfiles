@@ -95,6 +95,7 @@ set wmh=0
 
 "Ctrlp mapping
 map <C-o> :CtrlPBuffer<cr>
+map <C-P> :CtrlPReload<cr>
 
 "Managing Buffers
 map <C-h> :bprevious<cr>
