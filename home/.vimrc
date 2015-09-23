@@ -21,6 +21,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
+Plugin 'aperezdc/vim-template'
 call vundle#end()
 
 "Filetype commands. Mostly temporary/obsolete.
@@ -77,6 +78,9 @@ let g:airline_theme='durant'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
+" Config for ctrlp
+let g:ctrlp_follow_symlinks = 1
+
 """"""""""""
 " Mappings
 """"""""""""
@@ -95,7 +99,7 @@ set wmh=0
 
 "Ctrlp mapping
 map <C-o> :CtrlPBuffer<cr>
-map <C-P> :CtrlPReload<cr>
+map <leader>p :CtrlPClearAllCaches<cr>
 
 "Managing Buffers
 map <C-h> :bprevious<cr>
