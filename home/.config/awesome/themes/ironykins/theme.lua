@@ -35,8 +35,7 @@ theme.bg_minimize   = "#444444"
 -- {{{ Borders
 theme.border_width  = "2"
 theme.border_normal = "#3F3F3F"
---theme.border_focus  = "#6F6F6F"
-theme.border_focus = "#6AC26A"
+theme.border_focus = "#009900"
 theme.border_marked = "#CC9393"
 -- }}}
 
@@ -45,7 +44,8 @@ theme.titlebar_bg_focus  = "#3F3F3F"
 theme.titlebar_bg_normal = "#3F3F3F"
 -- }}}
 
-theme.tasklist_bg_focus = "#2A4242"
+theme.tasklist_bg_focus = "#002E00"
+theme.tasklist_fg_focus = "#AFAFAF"
 
 -- There are other variable sets
 -- overriding the default one when
