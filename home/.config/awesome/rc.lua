@@ -10,6 +10,7 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local layouts = require("layouts")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -58,24 +59,6 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
--- Table of layouts to cover with awful.layout.inc, order matters.
-local layouts =
-{
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier
-    awful.layout.suit.floating
-}
--- }}}
-
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}
@@ -86,7 +69,7 @@ for s = 1, screen.count() do
 end
 -- }}}
 
---require("topbar")
+require("topbar")
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
@@ -161,9 +144,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "e", function() menubar.show() end),
 
     -- Special keyboard Keys
-    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q sset Master 5%+", false) end),
-    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q sset Master 5%-", false) end),
-    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -q sset Master toggle", false) end),
+    awful.key({}, "XF86AudioRaiseVolume", function () 
+        awful.util.spawn("amixer -q sset Master 5%+", false) 
+        alsawidget.update()
+    end),
+    awful.key({}, "XF86AudioLowerVolume", function () 
+        awful.util.spawn("amixer -q sset Master 5%-", false) 
+        alsawidget.update()
+    end),
+    awful.key({}, "XF86AudioMute", function () 
+        awful.util.spawn("amixer -q sset Master toggle", false) 
+        awful.util.spawn("amixer sset " .. "Speaker" .. " unmute")
+        awful.util.spawn("amixer sset " .. "Headphone" .. " unmute")
+        alsawidget.update()
+    end),
 
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle", false) end),
     awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
@@ -256,6 +250,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
+      except = { type = "splash" },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = true,
