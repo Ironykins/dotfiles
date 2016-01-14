@@ -124,7 +124,7 @@ theme.layout_floating   = theme.theme_dir .. "/layouts/floating.png"
 
 -- {{{ Misc
 --theme.awesome_icon           = theme.theme_dir .. "/awesome-icon.png"
-theme.awesome_icon           = theme.theme_dir .. "/ironykins-icon.png"
+theme.awesome_icon           = theme.theme_dir .. "/foxico.png"
 theme.menu_submenu_icon      = "/usr/share/awesome/themes/default/submenu.png"
 theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/floatingw.png"
 -- }}}

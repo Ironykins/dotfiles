@@ -1,15 +1,15 @@
-" ___                 ____   ____ 
+" ___                 ____   ____
 "|_ _|_ __ ___  _ __ |  _ \ / ___|
-" | || '__/ _ \| '_ \| |_) | |    
-" | || | | (_) | | | |  _ <| |___ 
+" | || '__/ _ \| '_ \| |_) | |
+" | || | | (_) | | | |  _ <| |___
 "|___|_|  \___/|_| |_|_| \_\\____|
 
 "vimRC made by Ironkins
 
 "Vundle plugin Stuff. run :PluginInstall to update installed plugins.
-filetype off  
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
-call vundle#begin()         
+call vundle#begin()
 "Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
@@ -64,7 +64,7 @@ set showbreak=+++               "Put in linebreaks.
 set scrolloff=3                 "Show 3 lines above/below when scrolling
 
 "Find/Replace Tweaks
-set hlsearch                    "Highlight search results
+"set hlsearch                    "Highlight search results
 set smartcase                   "Ignore case except when we have upper case chars
 set ignorecase                  "Used in conjunction with the above
 set incsearch                   "Start searching before hitting enter.
@@ -113,15 +113,12 @@ inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
 
-"Normal Mode Sugar
-nmap <CR> o<Esc>
-nmap <BS> ddk
-
 "Backslash is my leader.
 let mapleader = "\\"
 
 "Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
+nnoremap <leader>0 :%s/\s\+$//<cr>
 
 "Fast saving
 nmap <leader>w :w!<cr>

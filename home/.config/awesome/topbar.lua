@@ -19,6 +19,7 @@ myawesomemenu = {
 
 configMenu = {
     { "Appearance", "gnome-tweak-tool" },
+    { "Resolution", "arandr" },
     { "Keychain", "seahorse" },
     { "App Finder", "xfce4-appfinder" },
     { "Default Apps", "xfce4-mime-settings" },
