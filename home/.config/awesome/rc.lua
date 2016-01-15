@@ -87,6 +87,8 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "z",   awful.tag.viewprev       ),
+    awful.key({ modkey,           }, "x",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     awful.key({ modkey,           }, "j",
@@ -133,6 +135,7 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
+    --[[
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -140,6 +143,8 @@ globalkeys = awful.util.table.join(
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
+    ]]--
+
     -- Menubar
     awful.key({ modkey }, "e", function() menubar.show() end),
 
