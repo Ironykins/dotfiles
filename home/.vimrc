@@ -100,6 +100,7 @@ set wmh=0
 "Ctrlp mapping
 map <C-o> :CtrlPBuffer<cr>
 map <leader>p :CtrlPClearAllCaches<cr>
+map <leader>r :%s/\s\+$//<cr>
 
 "Managing Buffers
 map <C-h> :bprevious<cr>
