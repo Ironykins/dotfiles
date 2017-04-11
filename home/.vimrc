@@ -6,11 +6,24 @@
 
 "vimRC made by Ironkins
 
-"Vundle plugin Stuff. run :PluginInstall to update installed plugins.
+" Auto installing Vundle script. Stolen from:
+" http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme) 
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+
+set nocompatible                "No need for vi compatibility
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
+set rtp+=~/.vim/bundle/vundle   "Vundle Package Manager!
 call vundle#begin()
-"Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
+
+"Vundle plugin Stuff. run :PluginInstall to update installed plugins.
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
@@ -22,17 +35,18 @@ Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
 Plugin 'aperezdc/vim-template'
-Plugin 'pangloss/vim-javascript'
+
+if iCanHazVundle == 0
+    echo "Installing Vundles, please ignore key map error messages"
+    echo ""
+    :PluginInstall
+endif
+
 call vundle#end()
 
 "Filetype commands. Mostly temporary/obsolete.
 filetype plugin indent on
 filetype plugin on
-au BufRead,BufNewFile *.m set filetype=asm
-au BufRead,BufNewFile *.asm set filetype=asmM6502
-au BufRead,BufNewFile *.s set filetype=armasm
-au BufRead,BufNewFile *.x set filetype=haskell
-au BufRead,BufNewFile *.y set filetype=haskell
 
 au FileType html setl sw=2 sts=2 et
 au FileType javascript setl sw=2 sts=2 et
@@ -45,7 +59,6 @@ let g:Tex_DefaultTargetFormat='pdf'
 "Basic settings
 syntax on                       "Syntax Highlighting
 set modelines=0                 "For security
-set nocompatible                "No need for vi compatibility
 set mouse=a                     "Mouse control
 set showmatch                   "Highlights matching brackets
 set number                      "Enables line numbering
@@ -110,6 +123,7 @@ set wmh=0
 "Ctrlp mapping
 map <C-o> :CtrlPBuffer<cr>
 map <leader>p :CtrlPClearAllCaches<cr>
+map <leader>r :%s/\s\+$//<cr>
 
 "Managing Buffers
 map <C-h> :bprevious<cr>
