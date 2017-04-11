@@ -6,7 +6,8 @@ They are intended for use with [Homeshick](https://github.com/andsens/homeshick)
 Assumes you're using Vundle and Oh my Zsh
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+chsh -s /bin/zsh
 ```
 
 ```
