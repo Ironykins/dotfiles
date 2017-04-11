@@ -2,6 +2,9 @@
 #export ZSH=/home/konrad/.oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 
+# For thefuck
+eval "$(thefuck --alias)"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -52,11 +55,11 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git debian sudo systemd taskwarrior)
+plugins=(git debian sudo systemd)
 
 # User configuration
 
-export PATH="/usr/local/bro/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

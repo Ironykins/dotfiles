@@ -3,7 +3,10 @@
 # for examples
 
 # TODO: Delete this.
-export PATH=/usr/local/bro/bin:$PATH
+export PATH=/home/konrad/.bin:$PATH
+
+# Just for thefuck
+eval "$(thefuck --alias)"
 
 # If not running interactively, don't do anything
 case $- in

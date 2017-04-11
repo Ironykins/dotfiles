@@ -22,15 +22,25 @@ Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
 Plugin 'aperezdc/vim-template'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 
 "Filetype commands. Mostly temporary/obsolete.
 filetype plugin indent on
 filetype plugin on
 au BufRead,BufNewFile *.m set filetype=asm
+au BufRead,BufNewFile *.asm set filetype=asmM6502
 au BufRead,BufNewFile *.s set filetype=armasm
 au BufRead,BufNewFile *.x set filetype=haskell
 au BufRead,BufNewFile *.y set filetype=haskell
+
+au FileType html setl sw=2 sts=2 et
+au FileType javascript setl sw=2 sts=2 et
+au FileType yaml setl sw=2 sts=2 et
+
+set grepprg=grep\ -nH\ $*
+let g:Tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
 
 "Basic settings
 syntax on                       "Syntax Highlighting

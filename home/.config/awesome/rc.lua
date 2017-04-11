@@ -21,6 +21,8 @@ if awesome.startup_errors then
                      text = awesome.startup_errors })
 end
 
+naughty.config.defaults.icon_size = 64
+
 -- Handle runtime errors after startup
 do
     local in_error = false
