@@ -6,7 +6,8 @@
 
 "vimRC made by Ironkins
 
-"Vundle plugin Stuff. run :PluginInstall to update installed plugins.
+" Auto installing Vundle script. Stolen from:
+" http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme) 
@@ -22,6 +23,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle   "Vundle Package Manager!
 call vundle#begin()
 
+"Vundle plugin Stuff. run :PluginInstall to update installed plugins.
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
@@ -45,10 +47,6 @@ call vundle#end()
 "Filetype commands. Mostly temporary/obsolete.
 filetype plugin indent on
 filetype plugin on
-au BufRead,BufNewFile *.m set filetype=asm
-au BufRead,BufNewFile *.s set filetype=armasm
-au BufRead,BufNewFile *.x set filetype=haskell
-au BufRead,BufNewFile *.y set filetype=haskell
 
 "Basic settings
 syntax on                       "Syntax Highlighting
