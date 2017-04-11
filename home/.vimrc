@@ -7,10 +7,21 @@
 "vimRC made by Ironkins
 
 "Vundle plugin Stuff. run :PluginInstall to update installed plugins.
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme) 
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+
+set nocompatible                "No need for vi compatibility
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim   "Vundle Package Manager!
+set rtp+=~/.vim/bundle/vundle   "Vundle Package Manager!
 call vundle#begin()
-"Plugin 'gmarik/Vundle.vim'          "let Vundle manage Vundle, required
+
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
@@ -22,6 +33,13 @@ Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
 Plugin 'aperezdc/vim-template'
+
+if iCanHazVundle == 0
+    echo "Installing Vundles, please ignore key map error messages"
+    echo ""
+    :PluginInstall
+endif
+
 call vundle#end()
 
 "Filetype commands. Mostly temporary/obsolete.
@@ -35,7 +53,6 @@ au BufRead,BufNewFile *.y set filetype=haskell
 "Basic settings
 syntax on                       "Syntax Highlighting
 set modelines=0                 "For security
-set nocompatible                "No need for vi compatibility
 set mouse=a                     "Mouse control
 set showmatch                   "Highlights matching brackets
 set number                      "Enables line numbering
