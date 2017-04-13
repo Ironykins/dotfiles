@@ -151,20 +151,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "e", function() menubar.show() end),
 
     -- Special keyboard Keys
-    awful.key({}, "XF86AudioRaiseVolume", function () 
-        awful.util.spawn("amixer -q sset Master 5%+", false) 
-        alsawidget.update()
-    end),
-    awful.key({}, "XF86AudioLowerVolume", function () 
-        awful.util.spawn("amixer -q sset Master 5%-", false) 
-        alsawidget.update()
-    end),
-    awful.key({}, "XF86AudioMute", function () 
-        awful.util.spawn("amixer -q sset Master toggle", false) 
-        awful.util.spawn("amixer sset " .. "Speaker" .. " unmute")
-        awful.util.spawn("amixer sset " .. "Headphone" .. " unmute")
-        alsawidget.update()
-    end),
+    --awful.key({}, "XF86AudioRaiseVolume", function () 
+        --awful.util.spawn("amixer -q sset Master 5%+", false) 
+        --alsawidget.update()
+    --end),
+    --awful.key({}, "XF86AudioLowerVolume", function () 
+        --awful.util.spawn("amixer -q sset Master 5%-", false) 
+        --alsawidget.update()
+    --end),
+    --awful.key({}, "XF86AudioMute", function () 
+        --awful.util.spawn("amixer -q sset Master toggle", false) 
+        --awful.util.spawn("amixer sset " .. "Speaker" .. " unmute")
+        --awful.util.spawn("amixer sset " .. "Headphone" .. " unmute")
+        --alsawidget.update()
+    --end),
 
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle", false) end),
     awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),

@@ -5,7 +5,7 @@ local menubar = require("menubar")
 local wibox = require("wibox")
 local layouts = require("layouts")
 
-alsawidget = require("volume")
+--alsawidget = require("volume")
 
 
 -- {{{ Menu
@@ -134,7 +134,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    if s == 1 then right_layout:add(alsawidget.bar) end
+    --if s == 1 then right_layout:add(alsawidget.bar) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
