@@ -3,7 +3,10 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # For thefuck
-eval "$(thefuck --alias)"
+
+if hash thefuck 2>/dev/null; then
+  eval "$(thefuck --alias)"
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
