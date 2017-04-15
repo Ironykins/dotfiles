@@ -35,7 +35,8 @@ theme.border_focus = "#009900"
 theme.border_marked = "#CC9393"
 
 --Let something else manage the wallpaper.
-theme.wallpaper_cmd = { "hsetroot -solid '#000000'" }
+-- theme.wallpaper_cmd = { "hsetroot -solid '#000000'" }
+theme.wallpaper = theme.theme_dir .. "/wallpaper.jpg"
 
 -- {{{ Titlebars
 theme.titlebar_bg_focus  = "#3F3F3F"
