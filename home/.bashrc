@@ -6,7 +6,9 @@
 export PATH=/home/konrad/.bin:$PATH
 
 # Just for thefuck
-eval "$(thefuck --alias)"
+if hash thefuck 2>/dev/null; then
+  eval "$(thefuck --alias)"
+fi
 
 # If not running interactively, don't do anything
 case $- in
