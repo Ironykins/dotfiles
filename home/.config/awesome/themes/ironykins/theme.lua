@@ -61,6 +61,7 @@ theme.tasklist_fg_focus = "#AFAFAF"
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
+theme.tooltip_fg = "#FFFFFF"
 
 -- {{{ Taglist
 theme.taglist_squares_sel   = theme.theme_dir .. "/taglist/squarefz.png"

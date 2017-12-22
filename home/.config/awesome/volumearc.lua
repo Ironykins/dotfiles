@@ -21,7 +21,7 @@ local TOG_VOLUME_CMD = 'amixer sset Master toggle'
 
 local volumearc = wibox.widget {
     max_value = 1,
-    thickness = 2,
+    thickness = 4,
     start_angle = 4.71238898, -- 2pi*3/4
     forced_height = 17,
     forced_width = 17,
@@ -30,7 +30,7 @@ local volumearc = wibox.widget {
     widget = wibox.container.arcchart
 }
 
-local volumearc_widget = wibox.container.mirror(volumearc, { horizontal = true })
+local volumearc_widget = wibox.container.margin(wibox.container.mirror(volumearc, { horizontal = true }), 6, 6, 2, 2)
 
 local update_graphic = function(widget, stdout, _, _, _)
     local mute = string.match(stdout, "%[(o%D%D?)%]")

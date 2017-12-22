@@ -13,6 +13,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable VIM help for hotkeys widget when client with matching name is opened:
 require("awful.hotkeys_popup.keys.vim")
 
+-- We need to import widgets after theme.
 local cpu_widget = require("cpu-widget")
 local volumearc_widget = require("volumearc")
 
@@ -49,7 +50,7 @@ awful.util.spawn_with_shell("killall compton; compton --backend glx --paint-on-o
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(awful.util.get_configuration_dir() .. "themes/ironykins/theme.lua")
-
+local memorymonitor_widget = require("memorymonitor")
 -- This is used later as the default terminal and editor to run.
 terminal = "sakura"
 editor = os.getenv("EDITOR") or "editor"
@@ -244,12 +245,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             cpu_widget,
-            wibox.widget{
-                markup = ' | ',
-                align  = 'center',
-                valign = 'center',
-                widget = wibox.widget.textbox
-            },
+            memorymonitor_widget,
             volumearc_widget,
             wibox.widget{
                 markup = ' | ',
