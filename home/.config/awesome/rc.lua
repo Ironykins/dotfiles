@@ -13,6 +13,9 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable VIM help for hotkeys widget when client with matching name is opened:
 require("awful.hotkeys_popup.keys.vim")
 
+local cpu_widget = require("cpu-widget")
+local volumearc_widget = require("volumearc")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -240,6 +243,20 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+            cpu_widget,
+            wibox.widget{
+                markup = ' | ',
+                align  = 'center',
+                valign = 'center',
+                widget = wibox.widget.textbox
+            },
+            volumearc_widget,
+            wibox.widget{
+                markup = ' | ',
+                align  = 'center',
+                valign = 'center',
+                widget = wibox.widget.textbox
+            },
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
@@ -269,6 +286,11 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle", false) end),
     awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
     awful.key({}, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+
+    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle", false) end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer sset Master 5%-") end),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer sset Master 5%+") end),
+    
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -523,6 +545,10 @@ awful.rules.rules = {
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
+    },
+
+    { rule_any = {type = { "dialog" }
+      }, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.

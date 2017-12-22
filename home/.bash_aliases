@@ -9,6 +9,7 @@ alias cse='ssh ktaust@cse.cpsc.ucalgary.ca'
 alias csc='ssh ktaust@csc.cpsc.ucalgary.ca'
 alias gf='echo no gf'
 alias tmux="TERM=screen-256color-bce tmux"
+alias jsprint='python -m json.tool'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).

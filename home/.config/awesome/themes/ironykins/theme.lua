@@ -17,8 +17,12 @@ theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/themes/ironykins"
 
 theme.font          = "sans 11"
+theme.useless_gap = 1
 
-theme.bg_normal = "#3F3F3F"
+theme.widget_red = "#FF0000"
+theme.widget_main_color = "#EEEEEE"
+
+theme.bg_normal = "#2F2F2F"
 theme.bg_focus  = "#1E2320"
 theme.bg_urgent = "#3F3F3F"
 theme.bg_minimize   = "#444444"
@@ -45,6 +49,7 @@ theme.titlebar_bg_normal = "#3F3F3F"
 
 theme.tasklist_bg_focus = "#002E00"
 theme.tasklist_fg_focus = "#AFAFAF"
+--theme.tasklist_disable_task_name = true
 
 -- There are other variable sets
 -- overriding the default one when

@@ -1,12 +1,4 @@
 #!/bin/bash
-#nm-applet &                  # Network manager for connections
-#light-locker &             # Lockscreen!
-#synapse -s &                 # The best application launcher ever. Seriously.
-#gnome-power-manager &        # For the lappy tops
-#gnome-volume-manager &       # Automounting Goodness
-#~/.startup &                 # Spawn our specific startup programs.
-#dex -a -e awesome -s ~/.config/autostart ;
-gnome-settings-daemon &      # Themes and finnicky bits.
 numlockx &                   # Turn on numlock. Honestly why would you leave it off.
 dex -a -e awesome &          # Run our normal autostart stuff.
 
