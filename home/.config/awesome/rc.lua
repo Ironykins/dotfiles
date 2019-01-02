@@ -276,12 +276,15 @@ globalkeys = gears.table.join(
     -- Lock the screen
     awful.key({ modkey,           }, "p", function () awful.util.spawn("light-locker-command -l", false) end),
     awful.key({ modkey,           }, "'", function () awful.util.spawn("xfce4-appfinder", false) end),
+    awful.key({ modkey,           }, ";", function () awful.util.spawn("rofi -show window", false) end),
+    awful.key({ modkey,           }, "r", function () awful.util.spawn("rofi -show run", false) end),
     awful.key({ modkey,           }, "z",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "x",  awful.tag.viewnext       ),
 
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle", false) end),
     awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
     awful.key({}, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+    awful.key({modkey}, "v", function () awful.util.spawn("sh -c 'sleep 0.5 && xdotool type --clearmodifiers -- \"$(xclip -o -selection clipboard)\"'") end),
 
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle", false) end),
     awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer sset Master 5%-") end),
@@ -368,8 +371,8 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    --           {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "c",
               function ()
@@ -507,6 +510,11 @@ awful.rules.rules = {
 
     -- Don't draw borders for splash screens
     {  rule = { type = "splash"},
+       properties = {border_width = 0}
+    },
+
+    -- Don't draw borders for VLC
+    {  rule = { instance = "vlc"},
        properties = {border_width = 0}
     },
 

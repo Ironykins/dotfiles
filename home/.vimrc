@@ -103,6 +103,7 @@ let g:airline_powerline_fonts = 1
 
 " Config for ctrlp
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_custom_ignore = 'node_modules'
 
 """"""""""""
 " Mappings

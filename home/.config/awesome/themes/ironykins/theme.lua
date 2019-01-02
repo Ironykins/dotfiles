@@ -17,7 +17,7 @@ theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/themes/ironykins"
 
 theme.font          = "sans 11"
-theme.useless_gap = 1
+theme.useless_gap = 0
 
 theme.widget_red = "#FF0000"
 theme.widget_main_color = "#EEEEEE"
