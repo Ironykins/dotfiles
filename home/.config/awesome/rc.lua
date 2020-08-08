@@ -52,7 +52,7 @@ awful.util.spawn_with_shell("killall compton; compton --backend glx --paint-on-o
 beautiful.init(awful.util.get_configuration_dir() .. "themes/ironykins/theme.lua")
 local memorymonitor_widget = require("memorymonitor")
 -- This is used later as the default terminal and editor to run.
-terminal = "sakura"
+terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -281,9 +281,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "z",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "x",  awful.tag.viewnext       ),
 
-    awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle", false) end),
-    awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
-    awful.key({}, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+    --awful.key({}, "XF86AudioPlay", function () awful.util.spawn("mpc toggle", false) end),
+    --awful.key({}, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
+    --awful.key({}, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
     awful.key({modkey}, "v", function () awful.util.spawn("sh -c 'sleep 0.5 && xdotool type --clearmodifiers -- \"$(xclip -o -selection clipboard)\"'") end),
 
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle", false) end),
@@ -553,6 +553,10 @@ awful.rules.rules = {
 
     { rule_any = {type = { "dialog" }
       }, properties = { titlebars_enabled = true }
+    },
+
+    { rule_any = {type = { "desktop"}, class = {"conky" }
+      }, properties = { border_width = 0, focusable = false, floating = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.

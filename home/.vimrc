@@ -97,7 +97,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
 " Config for Airline.
-let g:airline_theme='durant'
+"let g:airline_theme='durant'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
